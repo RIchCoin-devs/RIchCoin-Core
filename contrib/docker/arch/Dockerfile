@@ -18,4 +18,4 @@ ENV HOME /coin/home
 CMD ["/coin/RIchCoind"]
 
 # P2P, RPC
-EXPOSE 21103 20103
+EXPOSE 21203 20203

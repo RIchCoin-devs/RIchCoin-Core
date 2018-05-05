@@ -17,8 +17,8 @@ Specifications:
 * PoW (proof of work)
 * Algorithms: scrypt, x17, Lyra2rev2, myr-groestl, & blake2s
 * Blocktime: 60 seconds
-* RPC port: `7343`
-* P2P port: `2342`
+* RPC port: `20203`
+* P2P port: `21203`
 
 * Block Reward & Circulating Supply(CR) and Time Period (TP) in months after release:
   * Block 0 to 44,000 : 1440 coins (CR 63,360,000 TP 0-1)
@@ -160,13 +160,13 @@ Paste the output from the `RIchCoind` command into the Richcoin.conf like this: 
 
 Add `daemon=1`.
 
-**Optional**: Add `rpcport=7343`, `port=2342`, or `algo=groestl` to the configuration file.
+**Optional**: Add `rpcport=20203`, `port=2342`, or `algo=groestl` to the configuration file.
 
 Your config may look something like this:
 
     rpcuser=Richcoinrpcusername
     rpcpassword=85CpSuCNvDcYsdQU8w621mkQqJAimSQwCSJL5dPT9wQX
-    rpcport=7343
+    rpcport=20203
     port=2342
     daemon=1
     algo=groestl

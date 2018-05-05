@@ -47,7 +47,7 @@ void ThreadRPCServer3(void* parg);
 
 static inline unsigned short GetDefaultRPCPort()
 {
-    return GetBoolArg("-testnet", false) ? 21103 : 20103;
+    return GetBoolArg("-testnet", false) ? 21203 : 20203;
 }
 
 Object JSONRPCError(int code, const string& message)

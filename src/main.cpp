@@ -2604,10 +2604,10 @@ bool LoadBlockIndex(bool fAllowNew)
 {
     if (fTestNet)
     {
-        pchMessageStart[0] = 0xaf;
-        pchMessageStart[1] = 0xba;
-        pchMessageStart[2] = 0x14;
-        pchMessageStart[3] = 0xe8;
+        pchMessageStart[0] = 0xa8;
+        pchMessageStart[1] = 0xb2;
+        pchMessageStart[2] = 0x17;
+	pchMessageStart[3] = 0xe3;
 
         bnProofOfStakeLimit = bnProofOfStakeLimitTestNet; // 0x00000fff PoS base target is fixed in testnet
         hashGenesisBlock = hashGenesisBlockTestNet;
@@ -2652,7 +2652,8 @@ bool LoadBlockIndex(bool fAllowNew)
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].SetEmpty();
+        txNew.vout[0].nValue = 1440 * COIN;
+	txNew.vout[0].scriptPubKey = CScript() << ParseHex("041d7b3176bc6daa78d9fda55ac2357aac9357e185b7d81a219aa0eb7a563ac76c7e7a1bafdab071af322acb80306299e856cdee2b63cf38f4e988a4bbccc06166") << OP_CHECKSIG; //ECDSA keypair and the public key pasted here, easy to do
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
@@ -3017,7 +3018,7 @@ bool static AlreadyHave(CTxDB& txdb, const CInv& inv)
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
-unsigned char pchMessageStart[4] = { 0xa1, 0xb3, 0xc4, 0xee };
+unsigned char pchMessageStart[4] = { 0xa6, 0xb7, 0xc7, 0xe2 };
 
 bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 {

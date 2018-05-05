@@ -2250,7 +2250,7 @@ válido.  Estoy puede ocurrir ocasionalmente si otro nodo genera un bloque POS c
     <message>
         <location line="-26"/>
         <source>Listen for connections on &lt;port&gt; (default: 7777 or testnet: 17777)</source>
-        <translation>Escuchar conexiones en &lt;puerto&gt; (Por defecto: 21103 o testnet: 18333)</translation>
+        <translation>Escuchar conexiones en &lt;puerto&gt; (Por defecto: 21203 o testnet: 18333)</translation>
     </message>
     <message>
         <location line="+4"/>

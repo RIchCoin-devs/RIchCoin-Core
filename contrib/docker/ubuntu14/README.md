@@ -23,7 +23,7 @@ Test that the docker runs:
 
 To run:
 ---
-    docker run -d --name RIchCoin:ubuntu14 -v `pwd`/tmpRIchCoin:/coin/home -p 20103:20103 -p 21103:21103 RIchCoin
+    docker run -d --name RIchCoin:ubuntu14 -v `pwd`/tmpRIchCoin:/coin/home -p 20203:20203 -p 21203:21203 RIchCoin
 
 This command should return a container id. You can use this id (or the first few characters of it to refer to later. We added a name option above so we can just refer to it as 'RIchCoin'.)
 
