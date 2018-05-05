@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=RIchCoin
+Comment=RIchCoin P2P Cryptocurrency
+Comment[fr]=RIchCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=RIchCoin, eşten eşe kriptografik sanal para birimi
+Exec=/usr/bin/RIchCoin-qt
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/RIchCoin80.xpm
+MimeType=x-scheme-handler/RIchCoin;
+Categories=Office;
