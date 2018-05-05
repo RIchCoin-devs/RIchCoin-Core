@@ -45,10 +45,10 @@ static CBigNum bnProofOfStakeLimitTestNet(~uint256(0) >> 20);
 unsigned int nStakeMinAge = 10000 * 10000;	// minimum age disabled
 unsigned int nStakeMaxAge = 10000 * 10000;	// stake max age disabled
 unsigned int nStakeTargetSpacing = 30;		// 30 seconds POS block spacing
-unsigned int nProofOfWorkTargetSpacing = 150; 	// 30 seconds PoW block spacing
+unsigned int nProofOfWorkTargetSpacing = 300; 	// 60 seconds PoW block spacing
 
 int64 nChainStartTime = 1507042163;
-int nCoinbaseMaturity = 240;
+int nCoinbaseMaturity = 180;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 CBigNum bnBestChainTrust = 0;
@@ -970,43 +970,37 @@ uint256 WantedByOrphan(const CBlock* pblockOrphan)
 // miner's coin base reward based on nHeight
 int64 GetProofOfWorkReward(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 32 * COIN;
+//automated network hashrate code to be added here
+    int64 nSubsidy = 24 * COIN;
 
-    if (nHeight<14001 && nHeight>0)
+//fixed block rewards to be reached in 8 years
+    if (nHeight<44001 && nHeight>0)
     {
-    	nSubsidy = 8000 * COIN;
+    	nSubsidy = 1440 * COIN;
     }
-    if (nHeight<28001 && nHeight>14000)
+    if (nHeight<132001 && nHeight>44000)
     {
-        nSubsidy = 4000 * COIN;
+        nSubsidy = 720 * COIN;
     }
-    if (nHeight<42001 && nHeight>28000)
+    if (nHeight<440001 && nHeight>132000)
     {
-        nSubsidy = 2000 * COIN;
+        nSubsidy = 360 * COIN;
     }
-    if (nHeight<210001 && nHeight>42000)
+    if (nHeight<968001 && nHeight>440000)
     {
-        nSubsidy = 1000 * COIN;
+        nSubsidy = 180 * COIN;
     }
-    if (nHeight<378001 && nHeight>210000)
+    if (nHeight<1760001 && nHeight>968000)
     {
-        nSubsidy = 500 * COIN;
+        nSubsidy = 90 * COIN;
     }
-    if (nHeight<546001 && nHeight>378000)
+    if (nHeight<2816001 && nHeight>1760000)
     {
-        nSubsidy = 250 * COIN;
+        nSubsidy = 45 * COIN;
     }
-    if (nHeight<714001 && nHeight>546000)
+    if (nHeight<4224001 && nHeight>2816000)
     {
-        nSubsidy = 125 * COIN;
-    }
-    if (nHeight<2124001 && nHeight>714000)
-    {
-        nSubsidy = 62 * COIN;
-    }
-    if (nHeight<4248001 && nHeight>2124000)
-    {
-        nSubsidy = 32 * COIN;
+        nSubsidy = 24 * COIN;
     }
     return nSubsidy + nFees;
 }
@@ -1022,8 +1016,8 @@ int64 GetProofOfStakeReward(int64 nCoinAge, unsigned int nBits, unsigned int nTi
     return nSubsidy;
 }
 
-static const int64 nTargetTimespan = 1 * 15;  // 15 sec
-static const int64 nTargetSpacingWorkMax = 2 * nStakeTargetSpacing; // 1 minutes
+static const int64 nTargetTimespan = 1 * 30;  // 30 sec
+static const int64 nTargetSpacingWorkMax = 2 * nStakeTargetSpacing; // 1 minute
 
 //
 // minimum amount of work that could possibly be required nTime after
