@@ -8,6 +8,8 @@ Auspicium Melioris Aevi
   | | | | | |  __/ | |__| (_) | | | | | | (_) |  _| | (_| | | |_) |  __/ |_| ||  __/ |   / ___ \ (_| |  __/
   |_| |_| |_|\___|  \____\___/|_|_| |_|  \___/|_|    \__,_| |____/ \___|\__|\__\___|_|  /_/   \_\__, |\___|
                                                                                                 |___/    
+                                                                                                
+                                                                                 2018 RIchCoin/XRI
 ```
 
 Specifications:
@@ -39,10 +41,9 @@ After 8 years, by mid-2026, circulating supply will be 499,664,000 coins (approx
 
 Using RIchCoin on Windows (To be tested & added)
 -------------
-1. Download the pre-compiled software. (only from official RIchCoin site)
-[to be added]()
-2. Install
-3. In windows file explorer, open c:\Users\XXX\AppData\Roaming\RIchCoin (be sure to change XXX to your windows user)
+1. Download the pre-compiled software from the latest release in [this repository](https://github.com/RIchCoin-devs/RIchCoin-WindowsWallet/releases).
+2. Install the software.
+3. In Windows File Explorer, open c:\Users\XXX\AppData\Roaming\RIchCoin (be sure to change XXX to your windows user)
 4. Right click and create a new file RIchCoin.txt
 5. Edit the file to have contents above (see instructions above for options)
 6. Save and close the file
