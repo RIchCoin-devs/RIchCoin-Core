@@ -2658,7 +2658,7 @@ bool LoadBlockIndex(bool fAllowNew)
         
          {
                          // If genesis block hash does not match, then generate new genesis hash.
-             if (true && block.GetHash() != (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet))
+             if (false && block.GetHash() != (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet))
              {
                  printf("Searching for genesis block...\n");
                  // This will figure out a valid hash and Nonce if you're
