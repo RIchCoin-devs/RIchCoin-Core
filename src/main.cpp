@@ -47,7 +47,7 @@ unsigned int nStakeMaxAge = 10000 * 10000;	// stake max age disabled
 unsigned int nStakeTargetSpacing = 30;		// 30 seconds POS block spacing
 unsigned int nProofOfWorkTargetSpacing = 300; 	// 60 seconds PoW block spacing
 
-int64 nChainStartTime = 1507042163;
+int64 nChainStartTime = 1526093800;
 int nCoinbaseMaturity = 180;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2628,13 +2628,13 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
         // Genesis block
-        const char* pszTimestamp = "A coin of a better age is born.";
+        const char* pszTimestamp = "RIchCoin: A coin of a better age is born.";
 				if(fTestNet)
-					pszTimestamp = "RIchCoin TN";
+					pszTimestamp = "RIchCoin TestNet";
         CTransaction txNew;
         txNew.nTime = nChainStartTime;
 				if(fTestNet)
-					txNew.nTime = 1506956636;
+					txNew.nTime = 1526093778;
 				
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2646,19 +2646,19 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1507042163;
+        block.nTime    = 1526093800;
         block.nBits    = bnProofOfWorkLimit[ALGO_SCRYPT].GetCompact();
-        block.nNonce   = 541768;
+        block.nNonce   = 1818603;
 
 				if(fTestNet)
 		{
-			block.nTime = 1506956636;
-			block.nNonce = 823;
+			block.nTime = 1526093778;
+			block.nNonce = 509225;
         }
         
          {
                          // If genesis block hash does not match, then generate new genesis hash.
-             if (false && block.GetHash() != (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet))
+             if (true && block.GetHash() != (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet))
              {
                  printf("Searching for genesis block...\n");
                  // This will figure out a valid hash and Nonce if you're
@@ -2697,10 +2697,10 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("block.nNonce = %u \n", block.nNonce);				
 
 		if(fTestNet) {
-           assert(block.hashMerkleRoot == uint256("0x"));
+           assert(block.hashMerkleRoot == uint256("0x8ec899531f9e9e04c3842232fe2e3789f18b7b8fa6ad81a69c94a7ec92f06a5d"));
         }
         else {
-           assert(block.hashMerkleRoot == uint256("0x"));
+           assert(block.hashMerkleRoot == uint256("0xae562bd61b2db3bfc337c144374f74d855ba660e7e6cd15048822be416695489"));
         }
 
 
