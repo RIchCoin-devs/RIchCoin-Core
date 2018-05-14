@@ -1016,7 +1016,7 @@ int64 GetProofOfStakeReward(int64 nCoinAge, unsigned int nBits, unsigned int nTi
     return nSubsidy;
 }
 
-static const int64 nTargetTimespan = 1 * 30;  // 30 sec
+static const int64 nTargetTimespan = 2 * 30;  // 60 sec
 static const int64 nTargetSpacingWorkMax = 2 * nStakeTargetSpacing; // 1 minute
 
 //
@@ -1141,7 +1141,8 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, uint64 Targe
 unsigned int GetNextTargetRequired_V1(const CBlockIndex* pindexLast, bool fProofOfStake, int algo)
 {
     if (pindexLast == NULL)
-        return bnProofOfWorkLimit[ALGO_SCRYPT].GetCompact(); // genesis block
+        return bnProofOfWorkLimit[ALGO_SCRYPT].GetCompact(); // 
+
 
     // Proof-of-Stake blocks has own target limit
     CBigNum bnTargetLimit = fProofOfStake ? bnProofOfStakeLimit : bnProofOfWorkLimit[algo];
@@ -2639,8 +2640,7 @@ bool LoadBlockIndex(bool fAllowNew)
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 1440 * COIN;
-	txNew.vout[0].scriptPubKey = CScript() << ParseHex("041d7b3176bc6daa78d9fda55ac2357aac9357e185b7d81a219aa0eb7a563ac76c7e7a1bafdab071af322acb80306299e856cdee2b63cf38f4e988a4bbccc06166") << OP_CHECKSIG; //ECDSA keypair and the public key pasted here, easy to do
+        txNew.vout[0].SetEmpty();
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
