@@ -44,10 +44,10 @@ static CBigNum bnProofOfStakeLimitTestNet(~uint256(0) >> 20);
 
 unsigned int nStakeMinAge = 10000 * 10000;	// minimum age disabled
 unsigned int nStakeMaxAge = 10000 * 10000;	// stake max age disabled
-unsigned int nStakeTargetSpacing = 30;		// 30 seconds POS block spacing
+unsigned int nStakeTargetSpacing = 60;		// 60 seconds POS block spacing
 unsigned int nProofOfWorkTargetSpacing = 300; 	// 60 seconds PoW block spacing
 
-int64 nChainStartTime = 1526093800;
+int64 nChainStartTime = 1507042163;
 int nCoinbaseMaturity = 180;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1141,8 +1141,7 @@ unsigned int static DarkGravityWave3(const CBlockIndex* pindexLast, uint64 Targe
 unsigned int GetNextTargetRequired_V1(const CBlockIndex* pindexLast, bool fProofOfStake, int algo)
 {
     if (pindexLast == NULL)
-        return bnProofOfWorkLimit[ALGO_SCRYPT].GetCompact(); // 
-
+        return bnProofOfWorkLimit[ALGO_SCRYPT].GetCompact(); // genesis block
 
     // Proof-of-Stake blocks has own target limit
     CBigNum bnTargetLimit = fProofOfStake ? bnProofOfStakeLimit : bnProofOfWorkLimit[algo];
@@ -2629,31 +2628,32 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
         // Genesis block
-        const char* pszTimestamp = "RIchCoin: A coin of a better age is born.";
+        const char* pszTimestamp = "A coin of a better age is born.";
 				if(fTestNet)
-					pszTimestamp = "RIchCoin TestNet";
+					pszTimestamp = "RIchCoin TN";
         CTransaction txNew;
         txNew.nTime = nChainStartTime;
 				if(fTestNet)
-					txNew.nTime = 1526093778;
+					txNew.nTime = 1506956636;
 				
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].SetEmpty();
+        txNew.vout[0].nValue = 1440 * COIN;
+	txNew.vout[0].scriptPubKey = CScript() << ParseHex("041d7b3176bc6daa78d9fda55ac2357aac9357e185b7d81a219aa0eb7a563ac76c7e7a1bafdab071af322acb80306299e856cdee2b63cf38f4e988a4bbccc06166") << OP_CHECKSIG; //ECDSA keypair and the public key pasted here, easy to do
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1526093800;
+        block.nTime    = 1507042163;
         block.nBits    = bnProofOfWorkLimit[ALGO_SCRYPT].GetCompact();
-        block.nNonce   = 1818603;
+        block.nNonce   = 541768;
 
 				if(fTestNet)
 		{
-			block.nTime = 1526093778;
-			block.nNonce = 509225;
+			block.nTime = 1506956636;
+			block.nNonce = 823;
         }
         
          {
@@ -2697,10 +2697,10 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("block.nNonce = %u \n", block.nNonce);				
 
 		if(fTestNet) {
-           assert(block.hashMerkleRoot == uint256("0x8ec899531f9e9e04c3842232fe2e3789f18b7b8fa6ad81a69c94a7ec92f06a5d"));
+           assert(block.hashMerkleRoot == uint256("0x"));
         }
         else {
-           assert(block.hashMerkleRoot == uint256("0xae562bd61b2db3bfc337c144374f74d855ba660e7e6cd15048822be416695489"));
+           assert(block.hashMerkleRoot == uint256("0x"));
         }
 
 
