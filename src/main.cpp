@@ -47,7 +47,7 @@ unsigned int nStakeMaxAge = 10000 * 10000;	// stake max age disabled
 unsigned int nStakeTargetSpacing = 60;		// 60 seconds POS block spacing
 unsigned int nProofOfWorkTargetSpacing = 300; 	// 60 seconds PoW block spacing
 
-int64 nChainStartTime = 1507042163;
+int64 nChainStartTime = 1526363915;
 int nCoinbaseMaturity = 180;
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2628,32 +2628,32 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
         // Genesis block
-        const char* pszTimestamp = "A coin of a better age is born.";
+        const char* pszTimestamp = "Name: RIchCoin; Motto: A coin of a better age";
 				if(fTestNet)
-					pszTimestamp = "RIchCoin TN";
+					pszTimestamp = "RIchCoin testnet";
         CTransaction txNew;
         txNew.nTime = nChainStartTime;
 				if(fTestNet)
-					txNew.nTime = 1506956636;
+					txNew.nTime = 1526363951;
 				
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 1440 * COIN;
-	txNew.vout[0].scriptPubKey = CScript() << ParseHex("041d7b3176bc6daa78d9fda55ac2357aac9357e185b7d81a219aa0eb7a563ac76c7e7a1bafdab071af322acb80306299e856cdee2b63cf38f4e988a4bbccc06166") << OP_CHECKSIG; //ECDSA keypair and the public key pasted here, easy to do
+	txNew.vout[0].scriptPubKey = CScript() << ParseHex("041d7b3176bc6daa78d9fda55ac2357aac9357e185b7d81a219aa0eb7a563ac76c7e7a1bafdab071af322acb80306299e856cdee2b63cf38f4e988a4bbccc06166") << OP_CHECKSIG;
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1507042163;
+        block.nTime    = 1526363915;
         block.nBits    = bnProofOfWorkLimit[ALGO_SCRYPT].GetCompact();
-        block.nNonce   = 541768;
+        block.nNonce   = 638169;
 
 				if(fTestNet)
 		{
-			block.nTime = 1506956636;
-			block.nNonce = 823;
+			block.nTime = 1526363951;
+			block.nNonce = 162561;
         }
         
          {
@@ -2697,10 +2697,10 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("block.nNonce = %u \n", block.nNonce);				
 
 		if(fTestNet) {
-           assert(block.hashMerkleRoot == uint256("0x"));
+           assert(block.hashMerkleRoot == uint256("0x0d8589a668dc0f718a9f1a211dd3907ef757f10987b2693acdd5b2087570f036"));
         }
         else {
-           assert(block.hashMerkleRoot == uint256("0x"));
+           assert(block.hashMerkleRoot == uint256("0x81220b1dc2b45427db49ed86ed5505c1e5dde2b69b4ee030de2b6c4cba69429b"));
         }
 
 
