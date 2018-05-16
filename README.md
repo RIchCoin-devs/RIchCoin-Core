@@ -39,8 +39,7 @@ After 8 years, by mid-2026, circulating supply will be 499,664,000 coins (approx
 
 Using RIchCoin on Windows (To be tested & added)
 -------------
-1. Download the pre-compiled software. (only from official RIchCoin site)
-[to be added]()
+1. Download the pre-compiled software. (only from [official RIchCoin site](https://github.com/RIchCoin-devs/RIchCoin-Wallet-Windows))
 2. Install
 3. In windows file explorer, open c:\Users\XXX\AppData\Roaming\RIchCoin (be sure to change XXX to your windows user)
 4. Right click and create a new file RIchCoin.txt
@@ -61,6 +60,7 @@ Compiling Linux Wallet on Ubuntu/Debian
 
 ```sudo apt-get install libdb-dev libdb++-dev build-essential libtool autotools-dev automake pkg-config libssl1.0-dev libevent-dev bsdmainutils git libboost-all-dev libminiupnpc-dev libqt5gui5 libqt5core5a libqt5webkit5-dev libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev```
 
+**Note**: You will need to make sure you do not have differing versions of libdb(++) installed.
 **Note**: If you are on debian, you will also need to `apt-get install libcanberra-gtk-module`.
 
 2. Clone the git repository and compile the daemon and gui wallet:
@@ -73,7 +73,7 @@ if you are using source-build libdb4.8(++)-dev you may need to use
 
 **Note**: If you get a "memory exhausted" error, make a swap space on your boot drive.
 
-Compiling Mac Wallet on MacOS (To be tested):
+Compiling Mac Wallet on MacOS:
 ------------
 1. Ensure you do not have qt5 nor qt installed.
 
@@ -160,9 +160,9 @@ Paste the output from the `RIchCoind` command into the Richcoin.conf like this: 
 
 Add `daemon=1`.
 
-**Optional**: Add `rpcport=20203`, `port=2342`, or `algo=groestl` to the configuration file.
+**Optional**: Add `rpcport=20203`, `port=2342`, `daemon=1`, `algo=groestl`, and `addnode = server-ip` to the configuration file.
 
-Your config may look something like this:
+Your config should look something like this:
 
     rpcuser=Richcoinrpcusername
     rpcpassword=85CpSuCNvDcYsdQU8w621mkQqJAimSQwCSJL5dPT9wQX
@@ -170,6 +170,7 @@ Your config may look something like this:
     port=2342
     daemon=1
     algo=groestl
+    addnode=server-ip
 
 Mac and Linux: Exit the Richcoin.conf by pressing `ctrl + x` on your keyboard then pressing `y` and hitting enter. This should have created a Richcoin.conf file with what you just added.
 
@@ -187,6 +188,7 @@ To check the status of how much of the blockchain has been downloaded (aka synce
 ----------
 The wallet has a built-in CPU miner. You need to specify the algorithm in your .conf file and set the "gen" flag. For instance, in the configuration specify ```gen=1```.
 
+Alternatively, just open the debug window in your qt-wallet and type `setgenerate true` into the console.
 
 Using different mining algorithms
 ----------
@@ -202,9 +204,7 @@ To use a specific mining algorithm use the `algo` switch in your configuration f
 Thanks
 ----
 Special Thanks to:
-* RIchCoin Devs
 * VERGE Devs
 * Tor Devs
 * i2p Devs
 * Bitcoin Devs
-* Any others who have helped one way or another
