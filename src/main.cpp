@@ -970,10 +970,9 @@ uint256 WantedByOrphan(const CBlock* pblockOrphan)
 // miner's coin base reward based on nHeight
 int64 GetProofOfWorkReward(int nHeight, int64 nFees)
 {
-//automated network hashrate code to be added here
-    int64 nSubsidy = 24 * COIN;
+    int64 nSubsidy = = 24 * COIN;
 
-//fixed block rewards to be reached in 8 years
+//FIXED BLOCK REWARDS (ending at ~500 million XRI after approx. 8 years)
     if (nHeight<44001 && nHeight>0)
     {
     	nSubsidy = 1440 * COIN;
@@ -1001,6 +1000,37 @@ int64 GetProofOfWorkReward(int nHeight, int64 nFees)
     if (nHeight<4224001 && nHeight>2816000)
     {
         nSubsidy = 24 * COIN;
+    }
+//AUTOMATED BLOCK REWARDS
+    if (nHeight>4224000)
+    {
+        unsigned int basenBits = (bnProofOfWorkLimit[ALGO_SCRYPT].GetCompact()+
+				bnProofOfWorkLimit[ALGO_LYRA2RE].GetCompact()+
+				bnProofOfWorkLimit[ALGO_GROESTL].GetCompact()+
+				bnProofOfWorkLimit[ALGO_X17].GetCompact()+
+				bnProofOfWorkLimit[ALGO_BLAKE].GetCompact()) / 5;
+				
+        unsigned int nBits = (GetNextTargetRequired(pindexBest, false, ALGO_SCRYPT) +
+				GetNextTargetRequired(pindexBest, false, ALGO_LYRA2RE) +
+				GetNextTargetRequired(pindexBest, false, ALGO_GROESTL) +
+				GetNextTargetRequired(pindexBest, false, ALGO_X17) +
+				GetNextTargetRequired(pindexBest, false, ALGO_BLAKE)) / 5;
+//averages difficulty and retargets of each algorithm, allowing each algo to check and balance each other
+        int nShift = int((basenBits >> 24) & 0xff) - int((nBits >> 24) & 0xff);
+        double dDiff = (double)(basenBits & 0x007fffff) / (double)(nBits & 0x007fffff);
+
+        while (nShift > 0)
+        {
+            dDiff *= 256.0;
+            --nShift;
+        }
+        while (nShift < 0)
+        {
+            dDiff /= 256.0;
+           ++nShift;
+        }
+//fourth roots the sum of the average difficulty and the number of blocks created after the switch to inflationary rewards. This makes the inflation still determined by the protocol and also hard to sway at once, ensuring continued security in the inflation
+        nSubsidy = int64(sqrt(sqrt(dDiff * (nHeight-4224000)))) * COIN;
     }
     return nSubsidy + nFees;
 }

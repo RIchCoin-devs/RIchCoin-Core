@@ -127,7 +127,7 @@ uint256 WantedByOrphan(const CBlock* pblockOrphan);
 const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfStake);
 void RIchCoinMiner(CWallet *pwallet, bool fProofOfStake);
 void ResendWalletTransactions();
-
+unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfStake, int algo);
 enum
 {
     ALGO_SCRYPT  = 0,
