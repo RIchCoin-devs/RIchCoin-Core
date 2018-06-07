@@ -30,8 +30,7 @@ Specifications:
   * 2,816,000 to 4,224,000: 24 coins (CR 499,664,000 TP 64-96)
 
 * After 8 years, Block Rewards will be dictated by network hashrates(HR) as such:
-  * HR 16x: Block Reward 0.6x (CR 500,000,000+ TP 96-)
-  * HR 32/: Block Reward 1.4x (CR 500,000,000+ TP 96-)
+  * Block n : Fourth Root of (Average Block Difficulty + n - 4224000) coins (TP 96 - )
 
 Total Supply
 ------------
@@ -143,7 +142,7 @@ Type ```cd ~``` to get back to the home folder and type:
 
 The output from this command will tell you that you need to make a Richcoin.conf and will suggest some good starting values.
 
-For Windows users, access the RIchCoin.conf file in ```c:\Users\XXX\AppData\Roaming\RIchCoin``` you created earlier.
+For Windows users, open the RIchCoin.conf file in ```c:\Users\XXX\AppData\Roaming\RIchCoin``` you created earlier.
 
 For Linux users, type:
 
