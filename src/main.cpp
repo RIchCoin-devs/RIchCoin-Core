@@ -970,7 +970,7 @@ uint256 WantedByOrphan(const CBlock* pblockOrphan)
 // miner's coin base reward based on nHeight
 int64 GetProofOfWorkReward(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = = 24 * COIN;
+    int64 nSubsidy = 24 * COIN;
 
 //FIXED BLOCK REWARDS (ending at ~500 million XRI after approx. 8 years)
     if (nHeight<44001 && nHeight>0)
