@@ -1,4 +1,5 @@
-// Copyright (c) 2016 RIchCoin Developers
+// Copyright (c) 2016 SHIELD Developers
+
 
 #include <string.h>
 #include "pbkdf2.h"

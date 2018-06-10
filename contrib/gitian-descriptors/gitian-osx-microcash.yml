@@ -13,8 +13,8 @@ packages:
 
 reference_datetime: "2013-06-01 00:00:00"
 remotes:
-- "url": "https://github.com/RIchCoinTeam/fair-coin.git"
-  "dir": "fair-coin"
+- "url": "https://github.com/RIchCoin-devs/RIchCoin-Core.git"
+  "dir": "RIchCoin-Core"
 files:
 - "osx-native-depends-r2.tar.gz"
 - "osx-depends-r2.tar.gz"

@@ -38,9 +38,9 @@ After 8 years, by mid-2026, circulating supply will be 499,664,000 coins (approx
 
 Using RIchCoin on Windows (To be tested & added)
 -------------
-1. Download the pre-compiled software. (only from [official RIchCoin site](https://github.com/RIchCoin-devs/RIchCoin-Wallet-Windows))
+1. Download the pre-compiled software. (from [RIchCoin-Core releases](https://github.com/RIchCoin-devs/RIchCoin-Core/releases))
 2. Install
-3. In windows file explorer, open c:\Users\XXX\AppData\Roaming\RIchCoin (be sure to change XXX to your windows user)
+3. In Windows File Explorer, open c:\Users\XXX\AppData\Roaming\RIchCoin (be sure to change XXX to your windows user)
 4. Right click and create a new file RIchCoin.txt
 5. Edit the file to have contents above (see instructions above for options)
 6. Save and close the file
@@ -48,10 +48,10 @@ Using RIchCoin on Windows (To be tested & added)
 8. Start the RIchCoin-qt program.
 9. Open up RIchCoin-qt console and run ```getinfo``` (or ```getmininginfo```) to verify settings.
 10. Proceed below to make changes to your RIchCoin.conf file.
-**Note:** You must re-start the wallet after making changes to RIchCoin.conf.
+**Note:** You must restart the wallet after making changes to RIchCoin.conf.
 
 Compiling Linux Wallet on Ubuntu/Debian
-----------------------
+--------------------------------------
 
 1. Install the dependencies.
 
@@ -73,10 +73,10 @@ if you are using source-build libdb4.8(++)-dev you may need to use
 **Note**: If you get a "memory exhausted" error, make a swap space on your boot drive.
 
 Compiling Mac Wallet on MacOS:
-------------
+------------------------------
 1. Ensure you do not have qt5 nor qt installed.
 
-    `brew install qt@5.5 boost@1.57 automake miniupnpc openssl protobuf protobuf berkeley-db@4`   
+    `brew install qt@5.5 boost@1.57 automake miniupnpc openssl protobuf protobuf berkeley-db@4`
     `brew link boost@1.57 --force`
 
 
@@ -94,7 +94,7 @@ Compiling Mac Wallet on MacOS:
 
 
 Building the Mac installer (.dmg) file
------
+----------------------------------------
 Run `make deploy`
 
 If you are building the .dmg (by running 'mac deploy') you may need to run these commands if you get an error regarding mysql:
@@ -120,7 +120,7 @@ Trying to build .dmg on 10.8? You will need to run this:
     sudo -E easy_install appscript
     
 Accessing the wallet (Linux & Mac):
-----
+-----------------------------------
 The gui wallet is in ./RIchCoin/src/qt and the daemon(background) wallet in ./RIchCoin/src directories.
 
 **Note**: If you see something like 'Killed (program cc1plus)' run ```dmesg``` to see the error(s)/problems(s). This is most likely caused by running out of resources. You may need to add some RAM or add some swap space.
@@ -159,7 +159,7 @@ Paste the output from the `RIchCoind` command into the Richcoin.conf like this: 
 
 Add `daemon=1`.
 
-**Optional**: Add `rpcport=20203`, `port=2342`, `daemon=1`, `algo=groestl`, and `addnode = server-ip` to the configuration file.
+**Optional**: Add `rpcport=20203`, `port=2342`, `daemon=1`, `algo=groestl`, and `addnode= 192.168.1.133` to the configuration file.
 
 Your config should look something like this:
 
@@ -169,7 +169,7 @@ Your config should look something like this:
     port=2342
     daemon=1
     algo=groestl
-    addnode=server-ip
+    addnode=192.168.1.133
 
 Mac and Linux: Exit the Richcoin.conf by pressing `ctrl + x` on your keyboard then pressing `y` and hitting enter. This should have created a Richcoin.conf file with what you just added.
 
@@ -203,6 +203,7 @@ To use a specific mining algorithm use the `algo` switch in your configuration f
 Thanks
 ----
 Special Thanks to:
+* SHIELD Devs
 * VERGE Devs
 * Tor Devs
 * i2p Devs

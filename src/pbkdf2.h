@@ -1,4 +1,4 @@
-// Copyright (c) 2016 RIchCoin Developers
+// Copyright (c) 2016 SHIELD Developers
 
 #ifndef PBKDF2_H
 #define PBKDF2_H

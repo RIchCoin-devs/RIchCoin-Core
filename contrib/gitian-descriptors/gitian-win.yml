@@ -19,8 +19,8 @@ packages:
 - "gettext"
 reference_datetime: "2013-06-01 00:00:00"
 remotes:
-- "url": "https://github.com/RIchCoinTeam/fair-coin.git"
-  "dir": "fair-coin"
+- "url": "https://github.com/RIchCoin-devs/RIchCoin-Core.git"
+  "dir": "RIchCoin-Core"
 files:
 - "qt-win32-5.2.1-gitian-r1.zip"
 - "qt-win64-5.2.1-gitian-r1.zip"

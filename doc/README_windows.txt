@@ -1,6 +1,7 @@
-RIchCoin 0.4.0 BETA
+RIchCoin 1.0.0
 
-Copyright (c) 2013 RIchCoin Developers
+Copyright (c) 2018 RIchCoin Developers
+Copyright (c) 2013 SHIELD Developers
 Copyright (c) 2011-2013 PPCoin Developers
 Distributed under the MIT/X11 software license, see the accompanying
 file license.txt or http://www.opensource.org/licenses/mit-license.php.
