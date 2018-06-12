@@ -1,0 +1,31 @@
+WINDOWS BUILD NOTES
+===================
+Note: our official releases are compiled using mingw running on Windows 10.
+
+Dependencies
+------------
+Libraries you need to download separately and build:
+
+Library         Default path
+OpenSSL         C:\RIchCoin-Core\building\windows\lib\openssl-1.0.1p
+Berkeley DB     C:\RIchCoin-Core\building\windows\lib\db-4.8.30.NC
+Boost           C:\RIchCoin-Core\building\windows\lib\boost-1.58.0
+miniupnpc       C:\RIchCoin-Core\building\windows\lib\miniupnpc-1.9.20151008
+libpng          C:\RIchCoin-Core\building\windows\lib\libpng-1.6.16
+libevent        C:\RIchCoin-Core\building\windows\lib\libevent-2.1.8-stable
+pkg-config-lite C:\RIchCoin-Core\building\windows\lib\pkg-config-lite-0.28-1
+protobuf        C:\RIchCoin-Core\building\windows\lib\protobuf-2.6.1
+gtest (1.7.0)   C:\RIchCoin-Core\building\windows\lib\protobuf-2.6.1\gtest
+qrencode        C:\RIchCoin-Core\building\windows\lib\qrencode-3.4.3
+QTbase 5.3.2    C:\RIchCoin-Core\building\windows\Qt\5.3.2
+QTtools 5.3.2   C:\RIchCoin-Core\building\windows\Qt\qttools-opensource-src-5.3.2
+
+Others
+----------
+You also need to install MinGW to C:/MinGW and add it to your PATH.
+Following that, you will also need to download i686-4.9.4-release-posix-dwarf-rt_XXX.7z unzipped with 7-Zip and put in C:\RIchCoin\.
+Also, you have to place the RIchCoin source files as RIchCoin-Core-X.X.X in C:\RIchCoin-Core\building\windows\
+
+Steps
+-----
+Run the BAT files in order.
