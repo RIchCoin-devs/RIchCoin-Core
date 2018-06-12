@@ -38,16 +38,16 @@ After 8 years, by mid-2026, circulating supply will be 499,664,000 coins (approx
 
 Using RIchCoin on Windows (To be tested & added)
 -------------
-1. Download the pre-compiled software. (from [RIchCoin-Core releases](https://github.com/RIchCoin-devs/RIchCoin-Core/releases))
+1. Download the pre-compiled software labelled <RIchCoin-Core-X.X.X-windows.zip>. (from our [RIchCoin-Core releases](https://github.com/RIchCoin-devs/RIchCoin-Core/releases)) and unzip the file.
 2. Install
 3. In Windows File Explorer, open c:\Users\XXX\AppData\Roaming\RIchCoin (be sure to change XXX to your windows user)
 4. Right click and create a new file RIchCoin.txt
-5. Edit the file to have contents above (see instructions above for options)
-6. Save and close the file
-7. Reame the file to RIchCoin.conf.
-8. Start the RIchCoin-qt program.
-9. Open up RIchCoin-qt console and run ```getinfo``` (or ```getmininginfo```) to verify settings.
-10. Proceed below to make changes to your RIchCoin.conf file.
+5. Edit the file to have contents below (see [instructions below](https://github.com/RIchCoin-devs/RIchCoin-Core#creating-a-configuration-file) for options)
+6. Save and close the file.
+7. Rename the file to RIchCoin.conf.
+8. Start the RIchCoin-qt.exe program.
+9. Open up RIchCoin-qt debug window in Help > Debug Window and run ```getinfo``` (or ```getmininginfo```) to verify settings.
+
 **Note:** You must restart the wallet after making changes to RIchCoin.conf.
 
 Compiling Linux Wallet on Ubuntu/Debian
@@ -64,7 +64,7 @@ Compiling Linux Wallet on Ubuntu/Debian
 
 2. Clone the git repository and compile the daemon and gui wallet:
 
-```git clone https://github.com/HTY2003/RIchCoin && cd RIchCoin && ./autogen.sh && ./configure --with-incompatible-bdb && make```
+```git clone https://github.com/RIchCoin-devs/RIchCoin-Core.git && cd RIchCoin-Core && ./autogen.sh && ./configure --with-incompatible-bdb && make```
 
 if you are using source-build libdb4.8(++)-dev you may need to use
 
@@ -82,9 +82,9 @@ Compiling Mac Wallet on MacOS:
 
 2. Download the wallet source and build:
 
-    `git clone https://github.com/HTY2003/RIchCoin`
+    `git clone https://github.com/RIchCoin-devs/RIchCoin-Core.git`
 
-    `cd RIchCoin`
+    `cd RIchCoin-Core`
 
     `./building/common.sh`
 
@@ -118,10 +118,10 @@ Trying to build .dmg on 10.8? You will need to run this:
     export CPPFLAGS=-Qunused-arguments
 
     sudo -E easy_install appscript
-    
+
 Accessing the wallet (Linux & Mac):
 -----------------------------------
-The gui wallet is in ./RIchCoin/src/qt and the daemon(background) wallet in ./RIchCoin/src directories.
+The gui wallet is in ./RIchCoin-Core/src/qt as RIchCoin-qt and the daemon(background) wallet as RIchCoind in ./RIchCoin/src.
 
 **Note**: If you see something like 'Killed (program cc1plus)' run ```dmesg``` to see the error(s)/problems(s). This is most likely caused by running out of resources. You may need to add some RAM or add some swap space.
 
@@ -140,30 +140,30 @@ Type ```cd ~``` to get back to the home folder and type:
 ```RIchCoind.exe``` (for Windows users)
 ```./RIchCoind``` (for Mac and Linux users)
 
-The output from this command will tell you that you need to make a Richcoin.conf and will suggest some good starting values.
+The output from this command will tell you that you need to make a RIchCoin.conf and will suggest some good starting values.
 
 For Windows users, open the RIchCoin.conf file in ```c:\Users\XXX\AppData\Roaming\RIchCoin``` you created earlier.
 
-For Linux users, type:
+For Linux users, in the terminal, type:
 
 ```nano ~/.RIchCoin/RIchCoin.conf```
 
-For Mac users, type:
+For Mac users, in the terminal, type:
 
-```nano ~/Library/Application\ Support\RIchCoin\RIchCoin.conf```
+```nano ~/Library/Application\Support\RIchCoin\RIchCoin.conf```
 
-Paste the output from the `RIchCoind` command into the Richcoin.conf like this: (It is recommended to change the password to something unique.)
+Paste the output from the `RIchCoind` command into the RIchCoin.conf like this: (It is recommended to change the password to something unique.)
 
     rpcuser=RIchcoinRPCusername
-    rpcpassword=RIchCoinDevPassword
+    rpcpassword=85CpSuCNvDcYsdQU8w621mkQqJAimSQwCSJL5dPT9wQX
 
 Add `daemon=1`.
 
-**Optional**: Add `rpcport=20203`, `port=2342`, `daemon=1`, `algo=groestl`, and `addnode= 192.168.1.133` to the configuration file.
+**Optional**: Add `rpcport=20203`, `port=2342`, `daemon=1`, `algo=groestl`, and `addnode=192.168.1.133` to the configuration file.
 
 Your config should look something like this:
 
-    rpcuser=Richcoinrpcusername
+    rpcuser=RIchcoinRPCusername
     rpcpassword=85CpSuCNvDcYsdQU8w621mkQqJAimSQwCSJL5dPT9wQX
     rpcport=20203
     port=2342
@@ -171,9 +171,9 @@ Your config should look something like this:
     algo=groestl
     addnode=192.168.1.133
 
-Mac and Linux: Exit the Richcoin.conf by pressing `ctrl + x` on your keyboard then pressing `y` and hitting enter. This should have created a Richcoin.conf file with what you just added.
+Mac and Linux: Exit the RIchCoin.conf by pressing `ctrl + x` on your keyboard then pressing `y` and hitting enter. This should have created a RIchCoin.conf file with what you just added.
 
-Type: 
+Type:
 ```RIchCoind.exe``` (for Windows users)
 ```./RIchCoind``` (for Mac and Linux users)
 and your RIchCoin daemon should start! Huzzah!
