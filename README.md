@@ -159,14 +159,14 @@ Paste the output from the `RIchCoind` command into the RIchCoin.conf like this: 
 
 Add `daemon=1`.
 
-**Optional**: Add `rpcport=20203`, `port=2342`, `daemon=1`, `algo=groestl`, and `addnode=192.168.1.133` to the configuration file.
+**Optional**: Add `rpcport=20203`, `port=21203`, `daemon=1`, `algo=groestl`, and `addnode=192.168.1.133` to the configuration file.
 
 Your config should look something like this:
 
     rpcuser=RIchcoinRPCusername
     rpcpassword=85CpSuCNvDcYsdQU8w621mkQqJAimSQwCSJL5dPT9wQX
     rpcport=20203
-    port=2342
+    port=21203
     daemon=1
     algo=groestl
     addnode=192.168.1.133
@@ -185,7 +185,7 @@ To check the status of how much of the blockchain has been downloaded (aka synce
 
 "Solo-mining" from your wallet?
 ----------
-The wallet has a built-in CPU miner. You need to specify the algorithm in your .conf file and set the "gen" flag. For instance, in the configuration specify ```gen=1```.
+The wallet has a built-in CPU miner. You need to specify the algorithm in your .conf file and set the "gen" flag. For instance, in the configuration specify ```gen=1```. You can also type ```setgenerate true``` in the debug window of the qt-wallet.
 
 Alternatively, just open the debug window in your qt-wallet and type `setgenerate true` into the console.
 
@@ -199,6 +199,14 @@ To use a specific mining algorithm use the `algo` switch in your configuration f
     algo=lyra
     algo=blake
 
+GPU mining
+----------
+If you want to try GPU mining, look at [our wiki](https://github.com/RIchCoin-devs/RIchCoin-Core/wiki) to see the GPU mining guides.
+
+Troubleshooting and FAQ
+------------------------
+If you are having problems or have any questions, do consult the [troubleshooting guide](https://github.com/RIchCoin-devs/RIchCoin-Core/wiki/Troubleshooting) and [FAQ section](https://github.com/RIchCoin-devs/RIchCoin-Core/wiki/FAQ) in our wiki.
+If you have any questions or problems that haven't been listed, direct them to RIchCoin@gmail.com.
 
 Thanks
 ----
