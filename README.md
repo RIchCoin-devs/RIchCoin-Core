@@ -206,7 +206,7 @@ If you want to try GPU mining, look at [our wiki](https://github.com/RIchCoin-de
 Troubleshooting and FAQ
 ------------------------
 If you are having problems or have any questions, do consult the [troubleshooting guide](https://github.com/RIchCoin-devs/RIchCoin-Core/wiki/Troubleshooting) and [FAQ section](https://github.com/RIchCoin-devs/RIchCoin-Core/wiki/FAQ) in our wiki.
-If you have any questions or problems that haven't been listed, direct them to RIchCoin@gmail.com.
+If you have any questions or problems that haven't been listed, direct them to richcoin.xri@gmail.com.
 
 Thanks
 ----
