@@ -159,7 +159,7 @@ Paste the output from the `RIchCoind` command into the RIchCoin.conf like this: 
 
 Add `daemon=1`.
 
-**Optional**: Add `rpcport=20203`, `port=21203`, `daemon=1`, `algo=groestl`, and `addnode=192.168.1.133` to the configuration file.
+**Optional**: Add `rpcport=20203`, `port=21203`, `daemon=1`, and `algo=scrypt` to the configuration file.
 
 Your config should look something like this:
 
@@ -168,8 +168,7 @@ Your config should look something like this:
     rpcport=20203
     port=21203
     daemon=1
-    algo=groestl
-    addnode=192.168.1.133
+    algo=scrypt
 
 Mac and Linux: Exit the RIchCoin.conf by pressing `ctrl + x` on your keyboard then pressing `y` and hitting enter. This should have created a RIchCoin.conf file with what you just added.
 
