@@ -1151,7 +1151,7 @@ void MapPort()
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strDNSSeed[][2] = { //TODO: change
-    	{"ec2-18-136-0-254.ap-southeast-1.compute.amazonaws.com", "18.136.0.254"}
+    	{"ec2-54-169-192-23.ap-southeast-1.compute.amazonaws.com", "54.169.192.23"}
 };
 
 void ThreadDNSAddressSeed(void* parg)
@@ -1222,7 +1222,7 @@ void ThreadDNSAddressSeed2(void* parg)
 
 unsigned int pnSeed[] =
 {
-	0xfe008812, //hex-version of dedicated node
+	0x17c0a936, //hex-version of dedicated node
 	0x0c0cd0c2 // Remember: network byte order
 };
 
