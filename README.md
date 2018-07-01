@@ -41,6 +41,7 @@ Block Range | Block Reward | Circulating Supply | Months after Release
 2,816,000 - 4,224,000 | 24 XRI | 499,664,000 XRI | 96
 
 * After 4,224,000 blocks, block rewards will be dictated by network hash difficulty as such:
+
 Block Range | Block Reward | Circulating Supply | Months after Release
 --- | --- | --- | ---
 n |  ((Average Block Difficulty + (n - 4224000)) //  4) XRI | Infinity | Infinity
@@ -61,7 +62,7 @@ Using RIchCoin on Windows
 
 Using RIchCoin on Mac OS X
 ---------------------------
-1.  Download the pre-compiled software labelled <RIchCoin-Core-X.X.X-macosx.zip>. (from our [RIchCoin-Core releases](https://github.com/RIchCoin-devs/RIchCoin-Core/releases)) and unzip the file.
+1.  Download the pre-compiled software labelled <RIchCoin-Core-X.X.X-macosx.dmg>. (from our [RIchCoin-Core releases](https://github.com/RIchCoin-devs/RIchCoin-Core/releases)).
 2. Double-click the dmg file to create the app. Then, a prompt will appear.
 3. As the prompt states, drag the RIchCoin-qt icon on the prompt into the Applications icon on the prompt.
 4. When it is done transferring, you may eject the dmg file like any other drive and start the RIchCoin-Qt wallet by double-clicking it in your Applications folder.
