@@ -23,7 +23,7 @@ P2P port | `21203`
 Total Supply | N.A.
 Pre-mine | N.A.
 ICO | N.A.
-Block Explorer | http://52.169.192.23:3001
+Block Explorer | http://54.169.192.23:3001
 Official Website | https://richcoin-devs.github.io
 Server | Singapore only (for now)
 
