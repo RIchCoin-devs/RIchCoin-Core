@@ -62,11 +62,22 @@ Using RIchCoin on Windows
 
 Using RIchCoin on Mac OS X
 ---------------------------
-1.  Download the pre-compiled software labelled <RIchCoin-Core-X.X.X-macosx.dmg>. (from our [RIchCoin-Core releases](https://github.com/RIchCoin-devs/RIchCoin-Core/releases)).
-2. Double-click the dmg file to create the app. Then, a prompt will appear.
-3. As the prompt states, drag the RIchCoin-qt icon on the prompt into the Applications icon on the prompt.
-4. When it is done transferring, you may eject the dmg file like any other drive and start the RIchCoin-Qt wallet by double-clicking it in your Applications folder.
-5. Move on to creating a configuration file (see [instructions below](https://github.com/RIchCoin-devs/RIchCoin-Core#creating-a-configuration-file)).
+1. In Terminal, run the following commands:
+```xcode-select --install```
+
+```ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install …)"```
+
+```brew doctor```
+
+```brew install boost@1.57```
+
+```brew link --force boost@1.57```
+
+2. Download the pre-compiled software labelled <RIchCoin-Core-X.X.X-macosx.dmg>. (from our [RIchCoin-Core releases](https://github.com/RIchCoin-devs/RIchCoin-Core/releases)).
+3. Double-click the dmg file to create the app. Then, a prompt will appear.
+4. As the prompt states, drag the RIchCoin-qt icon on the prompt into the Applications icon on the prompt.
+5. When it is done transferring, you may eject the dmg file like any other drive and start the RIchCoin-Qt wallet by double-clicking it in your Applications folder.
+6. Move on to creating a configuration file (see [instructions below](https://github.com/RIchCoin-devs/RIchCoin-Core#creating-a-configuration-file)).
 
 **Note:** You must restart the wallet after making changes to RIchCoin.conf.
 
