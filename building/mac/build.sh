@@ -5,6 +5,6 @@ export QT_LIBS="-F/usr/local/opt/qt@5.5/lib -framework QtWidgets -framework QtGu
 
 ./autogen.sh
 echo QT_LIBS="\"$(echo $QT_LIBS)\"" QT_CFLAGS="\"$(echo $QT_CFLAGS)\""
-./configure --with-gui=qt5 QT_LIBS="${QT_LIBS}" QT_CFLAGS="${QT_CFLAGS}"
+./configure --with-gui=qt5 QT_LIBS="${QT_LIBS}" QT_CFLAGS="${QT_CFLAGS}" --with-boost=$(brew --prefix boost@1.60)
 make
 
