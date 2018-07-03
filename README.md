@@ -69,9 +69,9 @@ Using RIchCoin on Mac OS X
 
 ```brew doctor```
 
-```brew install boost@1.57```
+```brew install boost@1.60```
 
-```brew link --force boost@1.57```
+```brew link --force boost@1.60```
 
 2. Download the pre-compiled software labelled <RIchCoin-Core-X.X.X-macosx.dmg>. (from our [RIchCoin-Core releases](https://github.com/RIchCoin-devs/RIchCoin-Core/releases)).
 3. Double-click the dmg file to create the app. Then, a prompt will appear.
