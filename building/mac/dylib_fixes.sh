@@ -13,7 +13,7 @@ echo $ABS_PATH
 # the actual issue is that the python script ends up recursively looking at the libraries that are required by the dylibs, however, when it sees @loader_path on a module already copied over to package contents, those referenced modules are assumed to already be copied because they "are in" the package contents--  basically a false short circuit. For now, this script will remove any @loader_path and replace it with the absolute path so macdeployqtplus behaves correctly.
 
 function fix-boost-dylib-for-qtdeploy {
-BOOST_PATH=$(get-brew-lib-path boost@1.57)
+BOOST_PATH=$(get-brew-lib-path boost@1.60)
 for dylib in $(ls $BOOST_PATH/lib)
 do
 for localref in $(otool -L $BOOST_PATH/lib/$dylib | grep loader_path | awk '{print $1}')
