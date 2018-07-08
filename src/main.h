@@ -28,7 +28,7 @@ class CInv;
 class CRequestTracker;
 class CNode;
 
-static const int MULTI_ALGO_SWITCH_BLOCK = 10000;
+static const int MULTI_ALGO_SWITCH_BLOCK = 10600;
 static const unsigned int MAX_BLOCK_SIZE = 500000;
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
 static const unsigned int MAX_BLOCK_SIGOPS = MAX_BLOCK_SIZE/50;
@@ -155,9 +155,24 @@ enum
     BLOCK_VERSION_LYRA2RE	 = (10 << 11),
 };
 
+inline int GetTargetSpacing(int Height=nBestHeight, bool fProofOfStake=false)
+{
+    if(fProofOfStake){
+        return 45;
+    }
+    else
+    {
+        if (Height < 600){
+            return 150;//150/5 = 30sec
+        }else{
+            return 300;//225/5 = 60sec
+        }
+    }
+}
+
 inline int GetAlgo(int nVersion)
 {
-    switch (nVersion & (nBestHeight >= 380000 ? BLOCK_VERSION_ALGO : BLOCK_VERSION_ALGO_BROKEN))
+    switch (nVersion & (nBestHeight >= 510 ? BLOCK_VERSION_ALGO : BLOCK_VERSION_ALGO_BROKEN))
     {
         case BLOCK_VERSION_SCRYPT:
             return ALGO_SCRYPT;

@@ -25,27 +25,7 @@ namespace Checkpoints
     static MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
         (     0,  hashGenesisBlockOfficial)
-        /*(  15000, uint256("0x000000000265c5f4683b169a68cb3cac89287c8b5df94e17b09ef19ac718026b"))
-        (  30000, uint256("0x0000000003dddf9e84b1246e9a0bd7ceb2672998294e8c823d5ef288fa3781f4"))
-	(  45000, uint256("0x000000000321d6be8ffe446a9183f7605e40f523436479b713762346ae65a3bd"))
-	(  60000, uint256("0x00000000122a8a1dbdc9d2ab530facf3fefa2e7cee0393f628921cae3c60483f"))
-	(  75000, uint256("0x0000000016e3bb233f2196d532e8e7831ad19c9235e833309d10faf14b7902af"))
-	(  90000, uint256("0x0000000010f470ed5eda53dc12707e34297e75b7bd91f5e5ac9fb72050112e57"))
-	(  100000, uint256("0x000000000400a93131a94ad193c63faafeb8dfcc0c7d0e6f1c9c2614cb2823eb"))
-	(  150000, uint256("0x0000000000548f44babc055557c5870b15d1401bb0de72fb6a6c19d6c5f36d10"))
-	(  200000, uint256("0x000000000010dd127bfe9f6b8c36080c45bcd352151aa0d2a4c79c9eba1e05b6"))
-	(  219912, uint256("0x00000000010751365b77b28dc6af3c33e6c620e45a166c659a2056dc7cb3af0a"))
-	(  222222, uint256("0x00000000003c92cf2938d35cf4006fc21a251d82456780cafb43ab908eef9aff"))
-	(  244219, uint256("0x000000000139613d26f7436ecc568feb566c22d9a664359e53f0d0a542d5bdba"))
-	(  400000, uint256("0x0000000001d45af6613024ad5668bfa4909ac63e2b29c28042013d77a216830d"))
-	(  500000, uint256("0x0000000003700a4e9d81a67036d7647361086527e985cdf764648c5e61d07303"))
-	(  600000, uint256("0x30fa1eab961c99f6222f9925a27136c34ea27182c92e4f8c48ea3a90c7c2eb25"))
-	(  700000, uint256("0x3e4f3319706870bb149d1a976202c2a5e973384d181a600e7be59cbab5b63132"))
-	(  800000, uint256("0xf6b5f222bcc2f4e2439ccf6050d4ea3e9517c3752c3247302f039822ac9cc870"))
-	(  900000, uint256("0xc4d8b4079da888985854eda0200fb57045c2c70b29f10e98543f7c4076129e91"))
-	( 1000000, uint256("0x000000000049eaba3d6c29d9f45bc2a944b46eec005e2b038f1ee924f2f9c029"))
-	( 1100000, uint256("0xc766387a2e0cd6af995ea432518614824fe313e988598ea8b26f58efb99ebcdc"))
-	( 1145029, uint256("0x04def2ba205c1e5f4b33873bc9e5b0a54311370e823686aeb4d5aab0bf021899"))*/
+	(   510,  uint256("0xc1fd1d90e815f52a713799163c026a0615417b04e9ef1e469b65aa790981f317"))
         ;
 
     static MapCheckpoints mapCheckpointsTestnet =
@@ -71,16 +51,14 @@ namespace Checkpoints
 
         MapCheckpoints::const_iterator i = checkpoints.find(nHeight);
         if (i == checkpoints.end()) return true;
-        // return hash == i->second;
-        return true;
+        return hash == i->second;
     }
 
     int GetTotalBlocksEstimate()
     {
         MapCheckpoints& checkpoints = (fTestNet ? mapCheckpointsTestnet : mapCheckpoints);
 
-        // return checkpoints.rbegin()->first;
-        return 0;
+        return checkpoints.rbegin()->first;
     }
 
     CBlockIndex* GetLastCheckpoint(const std::map<uint256, CBlockIndex*>& mapBlockIndex)
@@ -92,8 +70,7 @@ namespace Checkpoints
             const uint256& hash = i.second;
             std::map<uint256, CBlockIndex*>::const_iterator t = mapBlockIndex.find(hash);
             if (t != mapBlockIndex.end())
-                // return t->second;
-                return NULL;
+                return t->second;
         }
         return NULL;
     }

@@ -12,31 +12,41 @@ Auspicium Melioris Aevi
 
 Specifications:
 --------------
+Specification | Value
+--- | ---
+Protocol | PoW (Proof of Work)
+Symbol |  `XRI`
+Algorithms | scrypt, x17, Lyra2rev2, myr-groestl, & blake2s
+Blocktime | 60 seconds
+RPC port | `20203`
+P2P port | `21203`
+Total Supply | N.A.
+Pre-mine | N.A.
+ICO | N.A.
+Block Explorer | http://54.169.192.23:3001
+Official Website | https://richcoin-devs.github.io
+Server | Singapore only (for now)
 
-* Symbol: `XRI`
-* PoW (proof of work)
-* Algorithms: scrypt, x17, Lyra2rev2, myr-groestl, & blake2s
-* Blocktime: 60 seconds
-* RPC port: `20203`
-* P2P port: `21203`
 
-* Block Reward & Circulating Supply(CR) and Time Period (TP) in months after release:
-  * Block 0 to 44,000 : 1440 coins (CR 63,360,000 TP 0-1)
-  * 44,000 to 132,000 : 720 coins (CR 158,400,000 TP 1-4)
-  * 132,000 to 440,000: 360 coins (CR 253,440,000 TP 4-10)
-  * 440,000 to 968,000: 180 coins (CR 348,480,000 TP 10-22)
-  * 968,000 to 1,760,000: 90 coins (CR 419,760,000 TP 22-40)
-  * 1,760,000 to 2,816,000: 45 coins (CR 467,280,000 TP 40-64)
-  * 2,816,000 to 4,224,000: 24 coins (CR 499,664,000 TP 64-96)
+Block Rewards
+-----------------
+Block Range | Block Reward | Circulating Supply | Months after Release
+--- | --- | --- | ---
+0 - 44,000 | 1440 XRI | 63,360,000 XRI | 1
+44,000 - 132,000 | 720 XRI | 158,400,000 XRI | 4
+132,000 - 440,000 | 360 XRI | 253,440,000 XRI | 10
+440,000 - 968,000 | 180 XRI | 348,480,000 XRI | 22
+968,000 - 1,760,000 | 90 XRI | 419,760,000 XRI | 40
+1,760,000 - 2,816,000 | 45 XRI | 467,280,000 XRI | 64
+2,816,000 - 4,224,000 | 24 XRI | 499,664,000 XRI | 96
 
-* After 8 years, Block Rewards will be dictated by network hashrates(HR) as such:
-  * Block n : Fourth Root of (Average Block Difficulty + n - 4224000) coins (TP 96 - )
+* After 4,224,000 blocks, block rewards will be dictated by network hash difficulty as such:
 
-Total Supply
-------------
-After 8 years, by mid-2026, circulating supply will be 499,664,000 coins (approx. 500 million XRI), before automation of the block reward begins. Current maximum set is 2 billion, but this can be changed anytime.
+Block Range | Block Reward | Circulating Supply | Months after Release
+--- | --- | --- | ---
+n |  ((Average Block Difficulty + (n - 4224000)) //  4) XRI | Infinity | Infinity
 
-Using RIchCoin on Windows (To be tested & added)
+Using RIchCoin on Windows
 -------------
 1. Download the pre-compiled software labelled <RIchCoin-Core-X.X.X-windows.zip>. (from our [RIchCoin-Core releases](https://github.com/RIchCoin-devs/RIchCoin-Core/releases)) and unzip the file.
 2. Install
@@ -50,6 +60,16 @@ Using RIchCoin on Windows (To be tested & added)
 
 **Note:** You must restart the wallet after making changes to RIchCoin.conf.
 
+Using RIchCoin on Mac OS X
+---------------------------
+1. Download the pre-compiled software labelled <RIchCoin-Core-X.X.X-macosx.dmg>. (from our [RIchCoin-Core releases](https://github.com/RIchCoin-devs/RIchCoin-Core/releases)).
+2. Double-click the dmg file to create the app. Then, a prompt will appear.
+3. As the prompt states, drag the RIchCoin-qt icon on the prompt into the Applications icon on the prompt.
+4. When it is done transferring, you may eject the dmg file like any other drive and start the RIchCoin-Qt wallet by double-clicking it in your Applications folder.
+5. Move on to creating a configuration file (see [instructions below](https://github.com/RIchCoin-devs/RIchCoin-Core#creating-a-configuration-file)).
+
+**Note:** You must restart the wallet after making changes to RIchCoin.conf.
+
 Compiling Linux Wallet on Ubuntu/Debian
 --------------------------------------
 
@@ -60,6 +80,7 @@ Compiling Linux Wallet on Ubuntu/Debian
 ```sudo apt-get install libdb-dev libdb++-dev build-essential libtool autotools-dev automake pkg-config libssl1.0-dev libevent-dev bsdmainutils git libboost-all-dev libminiupnpc-dev libqt5gui5 libqt5core5a libqt5webkit5-dev libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev```
 
 **Note**: You will need to make sure you do not have differing versions of libdb(++) installed.
+
 **Note**: If you are on debian, you will also need to `apt-get install libcanberra-gtk-module`.
 
 2. Clone the git repository and compile the daemon and gui wallet:
@@ -74,44 +95,44 @@ if you are using source-build libdb4.8(++)-dev you may need to use
 
 Compiling Mac Wallet on MacOS:
 ------------------------------
-1. Ensure you do not have qt5 nor qt installed.
+**Note**: This step is not needed if you have already downloaded the per-installed Mac .dmg files
 
-    `brew install qt@5.5 boost@1.57 automake miniupnpc openssl protobuf protobuf berkeley-db@4`
-    `brew link boost@1.57 --force`
-
-
-2. Download the wallet source and build:
+1. Download the wallet source and install requirements with Homebrew:
 
     `git clone https://github.com/RIchCoin-devs/RIchCoin-Core.git`
 
     `cd RIchCoin-Core`
+    
+    `sh ./building/mac/requirements.sh`
 
-    `./building/common.sh`
+2. Proceed to build the RIchCoin daemon and wallet:
 
-    `./building/build.sh`
+    `sh ./building/common.sh`
 
-    `./building/dist.sh`
+    `sh ./building/mac/build.sh`
+    
+3. Move on to building the Mac installer.
 
 
 Building the Mac installer (.dmg) file
 ----------------------------------------
-Run `make deploy`
+Run  `sh ./building/mac/dist.sh`.
 
-If you are building the .dmg (by running 'mac deploy') you may need to run these commands if you get an error regarding mysql:
+If you are building the .dmg and you get an error regarding my sql, you may need to run these commands:
 
     brew install mysql
 
-    cd /usr/local/qt5/5.4/clang_64/plugins/sqldrivers
+    cd /usr/local/opt/qt@5.5/plugins/sqldrivers
 
     otool -L libqsqlmysql.dylib
 
-Note: This may be pointing to an version of mysql that you do not have installed (like mysql55) - Alternatively, you may be able to remove the library from the sqldrivers folder.
+**Note**: This may be pointing to an version of mysql that you do not have installed (like mysql55) - Alternatively, you may be able to remove the library from the sqldrivers folder.
 
     install_name_tool -change /opt/local/lib/mysql55/mysql/libmysqlclient.18.dylib /usr/local/Cellar/mysql/5.7.12/lib/libmysqlclient.20.dylib libqsqlmysql.dylib
 
-Note: You may also run into issues when using `macdeployqtplus` to create the bundle, and the library will not bundle all of the boost dylibs. It's highly recommended to use the functions provided inside of [dylib-fixes.sh](/building/mac/dylib-fixes.sh)
+**Note**: You may also run into issues when using `macdeployqtplus` to create the bundle, and the library will not bundle all of the boost dylibs. It's highly recommended to use the functions provided inside of [dylib-fixes.sh](/building/mac/dylib-fixes.sh)
 
-Trying to build .dmg on 10.8? You will need to run this:
+Trying to build .dmg on Mac OS X 10.8? You will also need to run this:
 
     export CFLAGS=-Qunused-arguments
 
@@ -134,34 +155,24 @@ If you want to copy the binaries for use by all users, run the following command
 
 Creating a Configuration File
 ------------------------------
-
-Type ```cd ~``` to get back to the home folder and type:
-
-```RIchCoind.exe``` (for Windows users)
-```./RIchCoind``` (for Mac and Linux users)
-
-The output from this command will tell you that you need to make a RIchCoin.conf and will suggest some good starting values.
-
 For Windows users, open the RIchCoin.conf file in ```c:\Users\XXX\AppData\Roaming\RIchCoin``` you created earlier.
 
 For Linux users, in the terminal, type:
 
 ```nano ~/.RIchCoin/RIchCoin.conf```
 
-For Mac users, in the terminal, type:
+For Mac OS users, in the terminal, type:
 
 ```nano ~/Library/Application\Support\RIchCoin\RIchCoin.conf```
 
-Paste the output from the `RIchCoind` command into the RIchCoin.conf like this: (It is recommended to change the password to something unique.)
+Enter a username and password into the RIchCoin.conf like this: (It is recommended to change the password to something unique.)
 
     rpcuser=RIchcoinRPCusername
     rpcpassword=85CpSuCNvDcYsdQU8w621mkQqJAimSQwCSJL5dPT9wQX
 
-Add `daemon=1`.
+Add `daemon=1` , `rpcport=20203`, `port=21203`, `daemon=1`, and `algo=scrypt` to the configuration file.
 
-**Optional**: Add `rpcport=20203`, `port=21203`, `daemon=1`, and `algo=scrypt` to the configuration file.
-
-Your config should look something like this:
+In the end, your config should look something like this:
 
     rpcuser=RIchcoinRPCusername
     rpcpassword=85CpSuCNvDcYsdQU8w621mkQqJAimSQwCSJL5dPT9wQX
@@ -170,17 +181,15 @@ Your config should look something like this:
     daemon=1
     algo=scrypt
 
-Mac and Linux: Exit the RIchCoin.conf by pressing `ctrl + x` on your keyboard then pressing `y` and hitting enter. This should have created a RIchCoin.conf file with what you just added.
+Mac and Linux: Exit the RIchCoin.conf by pressing `ctrl + x` on your keyboard then pressing `y` and hitting enter. This will have created a RIchCoin.conf file with what you just added.
 
-Type:
-```RIchCoind.exe``` (for Windows users)
-```./RIchCoind``` (for Mac and Linux users)
-and your RIchCoin daemon should start! Huzzah!
+Next, start your qt or daemon wallet and you should start downloading and syncing with the blockchain.
 
-
-To check the status of how much of the blockchain has been downloaded (aka synced) type:
+To check the status of how much of the blockchain has been downloaded (aka synced) with your daemon, start your daemon and type:
 `RIchCoind.exe getinfo` (for Windows users)
-`./RIchCoind getinfo` (for Mac and Linux users)
+`./RIchCoind getinfo` (for Mac and Linux users who compiled, once again)
+
+As for the QT wallet, open the RIchCoin-qt app, open the debug window in Help > Debug window, and enter `getinfo`.
 
 "Solo-mining" from your wallet?
 ----------
