@@ -1033,7 +1033,7 @@ int64 GetProofOfWorkReward(int nHeight, int64 nFees)
            ++nShift;
         }
 //fourth roots the sum of the average difficulty and the number of blocks created after the switch to inflationary rewards. This makes the inflation still determined by the protocol and also hard to sway at once, ensuring continued security in the inflation
-        nSubsidy = int64(sqrt(sqrt(dDiff * (nHeight-4224000)))) * COIN;
+        nSubsidy = int64(sqrt(sqrt(dDiff + (nHeight-4224000)))) * COIN;
     }
     return nSubsidy + nFees;
 }
