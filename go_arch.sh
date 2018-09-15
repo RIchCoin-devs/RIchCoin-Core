@@ -51,5 +51,5 @@ cd ~/
 git clone https://github.com/RIchCoin-devs/RIchCoin-Core RIchCoin
 cd ~/RIchCoin
 ./autogen.sh
-./configure CPPFLAGS="-I/usr/include/openssl-1.0 -O2" LDFLAGS="-L/usr/lib/openssl-1.0" CFLAGS="-I/usr/include/openssl-1.0" --with-gui=qt5
+./configure --with-incompatible-bdb CPPFLAGS="-I/usr/include/openssl-1.0 -O2" LDFLAGS="-L/usr/lib/openssl-1.0" CFLAGS="-I/usr/include/openssl-1.0" --with-gui=qt5
 make
