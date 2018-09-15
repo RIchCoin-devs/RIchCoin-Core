@@ -48,7 +48,7 @@ mkdir ~/.RIchCoin
 echo "rpcuser="$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 26 ; echo '') '\n'"rpcpassword="$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 26 ; echo '') '\n'"rpcport=20203" '\n'"port=21203" '\n'"daemon=1" '\n'"listen=1" > ~/.RIchCoin/RIchCoin.conf
 
 cd ~/
-git clone https://github.com/RIchCoin/RIchCoin
+git clone https://github.com/RIchCoin-devs/RIchCoin-Core RIchCoin
 cd ~/RIchCoin
 ./autogen.sh
 ./configure CPPFLAGS="-I/usr/include/openssl-1.0 -O2" LDFLAGS="-L/usr/lib/openssl-1.0" CFLAGS="-I/usr/include/openssl-1.0" --with-gui=qt5
